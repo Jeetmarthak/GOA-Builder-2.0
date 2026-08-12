@@ -209,11 +209,62 @@ export function App() {
             </div>
           </div>
 
-          {/* MAIN GENERATOR GRID: PREVIEW ON LEFT, CONTROLS ON RIGHT */}
+          {/* MAIN GENERATOR GRID: FORM CONTROLS 1ST ON MOBILE, PREVIEW BELOW */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             
-            {/* LEFT COLUMN: Interactive Canvas Preview (Lg 7 Cols) */}
-            <div className="lg:col-span-7 space-y-4 lg:sticky lg:top-24">
+            {/* FORM CONTROLS CARD: Rendered 1st in DOM -> TOP on Mobile, RIGHT on Desktop */}
+            <div className="lg:col-span-5 space-y-6 lg:order-2">
+              <div className="bg-white border-2 border-[#0E3C28] rounded-3xl p-6 sm:p-8 shadow-xl space-y-6 text-left">
+                
+                <div className="border-b border-stone-200 pb-4">
+                  <h3 className="text-xl font-bold text-[#0E3C28] font-display-hh flex items-center space-x-2">
+                    <Sparkles className="w-5 h-5 text-[#FF007F]" />
+                    <span>Personalize Details</span>
+                  </h3>
+                  <p className="text-xs text-stone-500 font-sans-hh mt-1">
+                    Fill out your photo & info to render your instant graphic
+                  </p>
+                </div>
+
+                {/* 1. PHOTO UPLOADER */}
+                <PhotoUploader
+                  currentPhotoUrl={state.photoUrl}
+                  onPhotoSelected={(url) =>
+                    setState((prev) => ({ ...prev, photoUrl: url }))
+                  }
+                  onRemovePhoto={() =>
+                    setState((prev) => ({ ...prev, photoUrl: null }))
+                  }
+                />
+
+                {/* 2. FORMAT SPECIFIC INPUTS */}
+                {state.format === 'CARD' && (
+                  <CardFormInputs
+                    cardData={state.cardData}
+                    onChangeCardData={(newData: BuilderCardData) =>
+                      setState((prev) => ({ ...prev, cardData: newData }))
+                    }
+                  />
+                )}
+
+                {/* 3. THEME PICKER */}
+                <ThemePicker
+                  format={state.format}
+                  currentFrameTheme={state.frameTheme}
+                  currentCardTheme={state.cardTheme}
+                  onSelectFrameTheme={(theme: FrameTheme) =>
+                    setState((prev) => ({ ...prev, frameTheme: theme }))
+                  }
+                  onSelectCardTheme={(theme: CardTheme) =>
+                    setState((prev) => ({ ...prev, cardTheme: theme }))
+                  }
+                />
+
+              </div>
+            </div>
+
+            {/* INTERACTIVE CANVAS PREVIEW: Rendered 2nd in DOM -> BELOW FORM on Mobile, LEFT on Desktop */}
+            <div className="lg:col-span-7 space-y-4 lg:sticky lg:top-24 lg:order-1">
               <div className="bg-white border-2 border-[#0E3C28] rounded-3xl p-4 sm:p-6 shadow-2xl space-y-4">
                 
                 {/* Preview Bar Header */}
@@ -290,57 +341,6 @@ export function App() {
                   canvasRef={canvasRef}
                   format={state.format}
                   fullName={state.cardData.fullName}
-                />
-
-              </div>
-            </div>
-
-            {/* RIGHT COLUMN: Form Controls Card (Lg 5 Cols) */}
-            <div className="lg:col-span-5 space-y-6">
-              <div className="bg-white border-2 border-[#0E3C28] rounded-3xl p-6 sm:p-8 shadow-xl space-y-6 text-left">
-                
-                <div className="border-b border-stone-200 pb-4">
-                  <h3 className="text-xl font-bold text-[#0E3C28] font-display-hh flex items-center space-x-2">
-                    <Sparkles className="w-5 h-5 text-[#FF007F]" />
-                    <span>Personalize Details</span>
-                  </h3>
-                  <p className="text-xs text-stone-500 font-sans-hh mt-1">
-                    Fill out your photo & info to render your instant graphic
-                  </p>
-                </div>
-
-                {/* 1. PHOTO UPLOADER */}
-                <PhotoUploader
-                  currentPhotoUrl={state.photoUrl}
-                  onPhotoSelected={(url) =>
-                    setState((prev) => ({ ...prev, photoUrl: url }))
-                  }
-                  onRemovePhoto={() =>
-                    setState((prev) => ({ ...prev, photoUrl: null }))
-                  }
-                />
-
-                {/* 2. FORMAT SPECIFIC INPUTS */}
-                {state.format === 'CARD' && (
-                  <CardFormInputs
-                    cardData={state.cardData}
-                    onChangeCardData={(newData: BuilderCardData) =>
-                      setState((prev) => ({ ...prev, cardData: newData }))
-                    }
-                  />
-                )}
-
-                {/* 3. THEME PICKER */}
-                <ThemePicker
-                  format={state.format}
-                  currentFrameTheme={state.frameTheme}
-                  currentCardTheme={state.cardTheme}
-                  onSelectFrameTheme={(theme: FrameTheme) =>
-                    setState((prev) => ({ ...prev, frameTheme: theme }))
-                  }
-                  onSelectCardTheme={(theme: CardTheme) =>
-                    setState((prev) => ({ ...prev, cardTheme: theme }))
-                  }
                 />
 
               </div>
