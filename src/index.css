@@ -1,0 +1,153 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-serif: 'Cinzel', serif;
+    --font-display: 'Syne', sans-serif;
+    --font-sans: 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'Space Grotesk', monospace;
+    --font-pixel: 'Press Start 2P', monospace;
+    --font-hindi: 'Rozha One', serif;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #0E3C28;
+    color: #1A1A1A;
+    overflow-x: hidden;
+    cursor: url('/palm-tree-cursor.svg') 10 2, auto;
+  }
+
+  button,
+  a,
+  input,
+  select,
+  textarea,
+  label,
+  [role="button"],
+  .cursor-pointer {
+    cursor: url('/palm-tree-pointer.svg') 11 1, pointer !important;
+  }
+
+  canvas {
+    cursor: url('/palm-tree-pointer.svg') 11 1, grab !important;
+  }
+
+  canvas:active {
+    cursor: url('/palm-tree-pointer.svg') 11 1, grabbing !important;
+  }
+}
+
+/* Custom Fonts */
+.font-serif-hh {
+  font-family: var(--font-serif);
+}
+
+.font-display-hh {
+  font-family: var(--font-display);
+}
+
+.font-sans-hh {
+  font-family: var(--font-sans);
+}
+
+.font-mono-hh {
+  font-family: var(--font-mono);
+}
+
+.font-pixel-hh {
+  font-family: var(--font-pixel);
+}
+
+.font-hindi-hh {
+  font-family: var(--font-hindi);
+}
+
+/* Halftone Matrix Background (Hero section from reference image 1) */
+.bg-halftone-goa {
+  background-color: #0e3c28;
+  background-image: 
+    radial-gradient(#b3e619 1.5px, transparent 1.5px),
+    radial-gradient(#9bc525 1.5px, #0e3c28 1.5px);
+  background-size: 24px 24px;
+  background-position: 0 0, 12px 12px;
+}
+
+/* Responsive Goa Beach Backgrounds (Requested by User) */
+.bg-goa-responsive {
+  background-image: linear-gradient(180deg, rgba(14, 60, 40, 0.65) 0%, rgba(6, 44, 29, 0.85) 100%), url('/bg-mobile.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
+
+@media (min-width: 768px) {
+  .bg-goa-responsive {
+    background-image: linear-gradient(180deg, rgba(14, 60, 40, 0.7) 0%, rgba(6, 44, 29, 0.85) 100%), url('/bg-desktop.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+  }
+}
+
+/* Mobile Input Zoom Fix (Prevents iOS Safari auto-zooming on input focus) */
+@media (max-width: 767px) {
+  input[type="text"],
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Touch friendly tap highlights */
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.bg-halftone-emerald {
+  background-color: #062C1D;
+  background-image: radial-gradient(rgba(204, 255, 0, 0.25) 1.5px, transparent 1.5px);
+  background-size: 18px 18px;
+}
+
+/* Dot Matrix Cream Background (Generator section from reference image 2 & 3) */
+.bg-dot-matrix-cream {
+  background-color: #FAF8EE;
+  background-image: radial-gradient(#D4CEB0 1.2px, transparent 1.2px);
+  background-size: 16px 16px;
+}
+
+/* Candy Stripe Border (Create button from reference image 1) */
+.stripe-border {
+  border: 3px solid transparent;
+  background-image: linear-gradient(#EFFD30, #EFFD30), linear-gradient(135deg, #FF1493 25%, #EFFD30 25%, #EFFD30 50%, #FF1493 50%, #FF1493 75%, #EFFD30 75%);
+  background-origin: border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Glowing Neon Pink Script Overlay */
+.neon-pink-badge {
+  background: #FF007F;
+  color: #FFFFFF;
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.6), 0 4px 10px rgba(0, 0, 0, 0.3);
+  transform: rotate(-6deg);
+}
+
+.neon-pink-badge:hover {
+  transform: rotate(-4deg) scale(1.05);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #0e3c28;
+}
+::-webkit-scrollbar-thumb {
+  background: #2D6A4F;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #EFFD30;
+}

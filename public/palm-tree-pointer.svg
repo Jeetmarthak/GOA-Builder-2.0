@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 36 36">
+  <!-- Palm Trunk -->
+  <path d="M16 18 L20 18 L21 33 L15 33 Z" fill="#78350F" stroke="#0E3C28" stroke-width="1.5" stroke-linejoin="round" />
+  <!-- Coconuts -->
+  <circle cx="15" cy="18" r="3" fill="#451A03" />
+  <circle cx="21" cy="18" r="3" fill="#451A03" />
+  <!-- Palm Fronds / Leaves -->
+  <path d="M18 17 C10 14 2 10 1 16 C8 18 14 18 18 17 Z" fill="#059669" stroke="#EFFD30" stroke-width="1.5" />
+  <path d="M18 17 C26 14 34 10 35 16 C28 18 22 18 18 17 Z" fill="#059669" stroke="#EFFD30" stroke-width="1.5" />
+  <path d="M18 17 C12 9 10 2 18 2 C21 8 20 13 18 17 Z" fill="#10B981" stroke="#EFFD30" stroke-width="1.5" />
+  <path d="M18 17 C8 11 4 4 10 2 C15 7 17 12 18 17 Z" fill="#34D399" stroke="#EFFD30" stroke-width="1.5" />
+  <path d="M18 17 C28 11 32 4 26 2 C21 7 19 12 18 17 Z" fill="#34D399" stroke="#EFFD30" stroke-width="1.5" />
+  <!-- Glowing Pointer Tip Dot at Top Center -->
+  <circle cx="18" cy="2" r="3" fill="#FF007F" stroke="#FFFFFF" stroke-width="1.5" />
+</svg>
