@@ -116,7 +116,8 @@ export function App() {
 
   // Touch Handlers for Mobile Screens
   const handleCanvasTouchStart = (e: React.TouchEvent<HTMLCanvasElement>) => {
-    if (e.touches.length === 1) {
+    if (e.touches && e.touches.length === 1) {
+      if (e.cancelable) e.preventDefault();
       setIsDraggingCanvas(true);
       dragStartRef.current = {
         x: e.touches[0].clientX,
@@ -128,21 +129,26 @@ export function App() {
   };
 
   const handleCanvasTouchMove = (e: React.TouchEvent<HTMLCanvasElement>) => {
-    if (!isDraggingCanvas || !dragStartRef.current || e.touches.length !== 1) return;
+    if (e.cancelable) e.preventDefault();
+    if (!isDraggingCanvas || !dragStartRef.current || !e.touches || e.touches.length !== 1) return;
     const dx = e.touches[0].clientX - dragStartRef.current.x;
     const dy = e.touches[0].clientY - dragStartRef.current.y;
+
+    const startX = dragStartRef.current.initialPanX;
+    const startY = dragStartRef.current.initialPanY;
 
     setState((prev) => ({
       ...prev,
       photoTransform: {
         ...prev.photoTransform,
-        panX: dragStartRef.current!.initialPanX + dx * 1.5,
-        panY: dragStartRef.current!.initialPanY + dy * 1.5,
+        panX: startX + dx * 1.5,
+        panY: startY + dy * 1.5,
       },
     }));
   };
 
-  const handleCanvasTouchEnd = () => {
+  const handleCanvasTouchEnd = (e?: React.TouchEvent<HTMLCanvasElement>) => {
+    if (e && e.cancelable) e.preventDefault();
     setIsDraggingCanvas(false);
     dragStartRef.current = null;
   };

@@ -30,6 +30,10 @@
   }
 
   canvas {
+    touch-action: none !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    user-select: none !important;
     cursor: url('/palm-tree-pointer.svg') 11 1, grab !important;
   }
 

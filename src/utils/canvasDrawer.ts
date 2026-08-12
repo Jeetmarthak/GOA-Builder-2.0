@@ -8,13 +8,17 @@ export function renderGraphicToCanvas(
   state: GeneratorState,
   userImage: HTMLImageElement | null
 ) {
-  const ctx = canvas.getContext('2d');
-  if (!ctx) return;
+  try {
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
 
-  if (state.format === 'FRAME') {
-    renderPfpFrame(canvas, ctx, state, userImage);
-  } else {
-    renderBuilderCard(canvas, ctx, state, userImage);
+    if (state.format === 'FRAME') {
+      renderPfpFrame(canvas, ctx, state, userImage);
+    } else {
+      renderBuilderCard(canvas, ctx, state, userImage);
+    }
+  } catch (err) {
+    console.error('Canvas rendering exception caught cleanly:', err);
   }
 }
 
