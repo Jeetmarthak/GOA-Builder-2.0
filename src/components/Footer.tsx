@@ -12,7 +12,7 @@ export const Footer: React.FC = () => {
           <span>•</span>
           <span>HH GOA 2026</span>
           <span>•</span>
-          <span>August 28-31, 2026</span>
+          <span>October 28-31, 2026</span>
           <span>•</span>
           <span>Goa, India</span>
         </div>

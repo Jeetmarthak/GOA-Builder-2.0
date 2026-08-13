@@ -88,7 +88,7 @@ export const ExportActions: React.FC<ExportActionsProps> = ({
     const nameStr = fullName ? ` as ${fullName}` : '';
     const itemStr = format === 'FRAME' ? 'Profile Frame' : 'Builder Pass';
     const siteUrl = window.location.href;
-    return `Just created my official ${itemStr}${nameStr} for @HackerHouseGoa 2026! 🚀🌴\n\nHeading to Goa, India this Aug 28-31 to build with top devs.\n\nGenerate your frame & badge here:\n${siteUrl}\n\n#FrameInGoa #HHGoa2026 #HackerHouseGoa`;
+    return `Just created my official ${itemStr}${nameStr} for @HackerHouseGoa 2026! 🚀🌴\n\nHeading to Goa, India this Oct 28-31 to build with top devs.\n\nGenerate your frame & badge here:\n${siteUrl}\n\n#FrameInGoa #HHGoa2026 #HackerHouseGoa`;
   };
 
   const handleShareToX = () => {

@@ -136,7 +136,7 @@ function renderPfpFrame(
   drawCurvedText(ctx, "HACKER HOUSE GOA 2026", cx, cy, avatarRadius + 70, Math.PI * 1.5, '#EFFD30', 'bold 42px Cinzel, serif');
 
   // Bottom Curved Text "#FRAMEINGOA • GOA INDIA"
-  drawCurvedText(ctx, "#FRAMEINGOA • AUG 28-31, 2026", cx, cy, avatarRadius + 70, Math.PI * 0.5, '#FFFFFF', 'bold 30px "Space Grotesk", sans-serif', true);
+  drawCurvedText(ctx, "#FRAMEINGOA • OCT 28-31, 2026", cx, cy, avatarRadius + 70, Math.PI * 0.5, '#FFFFFF', 'bold 30px "Space Grotesk", sans-serif', true);
 
   // 3. Draw Neon Pink Hindi "गोवा" Script Sticker Overlay (Bottom Right of Avatar)
   drawHindiGoaBadge(ctx, width - 290, height - 210, 1.1);
@@ -235,7 +235,7 @@ function renderBuilderCard(
   // Event Details Sub-header Bar
   ctx.fillStyle = cardTheme === 'retro_paper' ? '#2D6A4F' : '#00E5FF';
   ctx.font = '600 18px "Space Grotesk", sans-serif';
-  ctx.fillText('OFFICIAL BUILDER PASS • GOA, INDIA • AUG 28-31, 2026', cardX + 50, cardY + 110);
+  ctx.fillText('OFFICIAL BUILDER PASS • GOA, INDIA • OCT 28-31, 2026', cardX + 50, cardY + 110);
 
   // Decorative Divider Line
   ctx.strokeStyle = cardTheme === 'retro_paper' ? 'rgba(14, 60, 40, 0.2)' : 'rgba(239, 253, 48, 0.3)';
